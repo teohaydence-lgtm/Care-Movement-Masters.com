@@ -32,12 +32,12 @@
     .title { display: flex; align-items: center; gap: 15px; padding: 0 20px 8px; border-bottom: 3px solid #fff; }
     h1 img { height: calc(1.1 * var(--fs)); width: auto; flex: none; }
     body { display: flex; flex-direction: column; }
-    .columns { flex: 1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 4rem; padding-bottom: 3rem; }
-    .col-left, .col-right { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem 0; }
-    .col-left h2, .col-right h2 { font-family: 'Pacifico', cursive; font-weight: normal; font-size: calc(var(--fs) * 0.45); line-height: 1.3; margin: 0 0 1rem; }
-    .col-left ul, .col-right ul { text-align: left; margin: 0; padding-left: 1.4em; font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif; font-size: clamp(1.1rem, 1.6vw, 1.6rem); line-height: 1.7; max-width: 38rem; }
-    .col-left h2.next, .col-right h2.next { margin-top: 2rem; }
-    .col-left li, .col-right li { margin-bottom: 0.7em; }
+    .columns { flex: 1; display: flex; flex-direction: column; padding: 1rem 0 3rem; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; column-gap: 4rem; }
+    .cell { display: grid; grid-template-rows: subgrid; grid-row: span 2; justify-items: center; align-content: start; text-align: center; padding: 1.2rem 0; }
+    .cell h2 { font-family: 'Pacifico', cursive; font-weight: normal; font-size: calc(var(--fs) * 0.45); line-height: 1.3; margin: 0 0 1rem; }
+    .cell ul { text-align: left; margin: 0; padding-left: 1.4em; font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif; font-size: clamp(1.1rem, 1.6vw, 1.6rem); line-height: 1.7; max-width: 38rem; }
+    .cell li { margin-bottom: 0.7em; }
     .closing { max-width: min(92vw, 64rem); margin: 1rem auto 5rem; text-align: center; font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif; font-size: clamp(1.2rem, 1.9vw, 1.9rem); line-height: 1.7; }
   </style>
 </head>
@@ -52,50 +52,64 @@
   </nav>
   <h1><span class="title"><span>Take Action</span><img src="action.png" alt=""></span></h1>
   <div class="columns">
-    <div class="col-left">
-      <h2>Spread Awareness</h2>
-      <ul>
-        <li>Share educational information about the Malayan Tiger on social media.</li>
-        <li>Teach friends and family about the importance of protecting endangered animals.</li>
-        <li>Create posters, videos or presentations to educate others about tiger conservation.</li>
-        <li>Encourage schools to organise wildlife awareness campaigns.</li>
-      </ul>
-      <h2 class="next">Say No to Illegal Wildlife Trade</h2>
-      <ul>
-        <li>Never purchase products made from tiger body parts or other endangered animals.</li>
-        <li>Avoid supporting businesses involved in illegal wildlife trading.</li>
-        <li>Report suspected illegal wildlife activities to the relevant authorities with the help of a trusted adult.</li>
-      </ul>
-      <h2 class="next">Make Responsible Choices</h2>
-      <ul>
-        <li>Choose products from companies that demonstrate responsible environmental practices.</li>
-        <li>Avoid supporting activities that contribute to deforestation.</li>
-        <li>Learn about the environmental impact of everyday purchases.</li>
-        <li>Encourage family members and friends to make environmentally friendly decisions.</li>
-      </ul>
+    <div class="pair">
+      <div class="cell">
+        <h2>Spread Awareness</h2>
+        <ul>
+          <li>Share educational information about the Malayan Tiger on social media.</li>
+          <li>Teach friends and family about the importance of protecting endangered animals.</li>
+          <li>Create posters, videos or presentations to educate others about tiger conservation.</li>
+          <li>Encourage schools to organise wildlife awareness campaigns.</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <h2>Protect the Environment</h2>
+        <ul>
+          <li>Reduce, reuse and recycle paper to help reduce pressure on forest resources.</li>
+          <li>Avoid littering and participate in community clean-up activities.</li>
+          <li>Plant trees and support environmental conservation programmes.</li>
+          <li>Support efforts to protect Malaysia's forests and the Central Forest Spine.</li>
+        </ul>
+      </div>
     </div>
-    <div class="col-right">
-      <h2>Protect the Environment</h2>
-      <ul>
-        <li>Reduce, reuse and recycle paper to help reduce pressure on forest resources.</li>
-        <li>Avoid littering and participate in community clean-up activities.</li>
-        <li>Plant trees and support environmental conservation programmes.</li>
-        <li>Support efforts to protect Malaysia's forests and the Central Forest Spine.</li>
-      </ul>
-      <h2 class="next">Support Wildlife Conservation</h2>
-      <ul>
-        <li>Donate to trusted wildlife conservation organisations.</li>
-        <li>Participate in wildlife protection campaigns and fundraising events.</li>
-        <li>Volunteer in suitable environmental programmes.</li>
-        <li>Support organisations such as WWF-Malaysia and the Malaysian Conservation Alliance for Tigers (MYCAT).</li>
-      </ul>
-      <h2 class="next">Be a Responsible Wildlife Tourist</h2>
-      <ul>
-        <li>Visit ethical wildlife conservation centres that prioritise animal welfare.</li>
-        <li>Never support attractions that allow visitors to touch, ride or mistreat wild animals.</li>
-        <li>Respect wildlife by observing animals from a safe distance without disturbing their natural behaviour.</li>
-        <li>Share your experiences to encourage others to support ethical wildlife tourism.</li>
-      </ul>
+    <div class="pair">
+      <div class="cell">
+        <h2>Say No to Illegal Wildlife Trade</h2>
+        <ul>
+          <li>Never purchase products made from tiger body parts or other endangered animals.</li>
+          <li>Avoid supporting businesses involved in illegal wildlife trading.</li>
+          <li>Report suspected illegal wildlife activities to the relevant authorities with the help of a trusted adult.</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <h2>Support Wildlife Conservation</h2>
+        <ul>
+          <li>Donate to trusted wildlife conservation organisations.</li>
+          <li>Participate in wildlife protection campaigns and fundraising events.</li>
+          <li>Volunteer in suitable environmental programmes.</li>
+          <li>Support organisations such as WWF-Malaysia and the Malaysian Conservation Alliance for Tigers (MYCAT).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="cell">
+        <h2>Make Responsible Choices</h2>
+        <ul>
+          <li>Choose products from companies that demonstrate responsible environmental practices.</li>
+          <li>Avoid supporting activities that contribute to deforestation.</li>
+          <li>Learn about the environmental impact of everyday purchases.</li>
+          <li>Encourage family members and friends to make environmentally friendly decisions.</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <h2>Be a Responsible Wildlife Tourist</h2>
+        <ul>
+          <li>Visit ethical wildlife conservation centres that prioritise animal welfare.</li>
+          <li>Never support attractions that allow visitors to touch, ride or mistreat wild animals.</li>
+          <li>Respect wildlife by observing animals from a safe distance without disturbing their natural behaviour.</li>
+          <li>Share your experiences to encourage others to support ethical wildlife tourism.</li>
+        </ul>
+      </div>
     </div>
   </div>
   <p class="closing">Remember: Protecting the Malayan Tiger is everyone's responsibility. Every individual has the power to contribute towards a healthier environment, a stronger ecosystem and a future where these magnificent animals can survive in the wild!</p>
