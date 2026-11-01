@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Care Movement Masters</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.25s; }
+    html, body { margin: 0; background: #1B4D2E; color: #FFFACD; }
+    body { text-align: center; padding: 0 2rem; min-height: 100vh; }
+    .nav { position: fixed; top: max(0.5rem, calc(var(--x) / 4 - 3rem - 7px)); left: 1rem; z-index: 2; display: flex; align-items: center; gap: 1.8rem; }
+    .nav::after { content: ''; position: fixed; left: 0; right: 0; top: var(--line-y); height: 3px; background: #fff; }
+    .home { display: flex; align-items: center; gap: 0.6rem; color: #FFFACD; text-decoration: none; font-family: 'Pacifico', cursive; font-size: 1.4rem; cursor: pointer; transition: transform 0.2s ease; transform-origin: left center; }
+    .home.active .home-label { color: #F95802; }
+    .home:hover, .home:focus-visible { transform: scale(1.08); }
+    .home-btn { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; box-sizing: border-box; padding: 0.4rem; background: #1B4D2E; border: 2px solid #FFFACD; border-radius: 0.8rem; }
+    .home-btn img { width: 100%; height: 100%; object-fit: contain; }
+    #sdg-link .home-btn { padding: 0.25rem; }
+    .home:focus-visible .home-btn { outline: 2px solid #fff; outline-offset: 3px; }
+    :root { --fs: clamp(3rem, 9vw, 7rem); --x: calc(76vh - 2.6 * var(--fs)); --line-y: calc(var(--x) / 2 - max(0px, var(--x) / 4) + 5px); }
+    h1 { font-size: var(--fs); line-height: 1.3; font-family: 'Pacifico', cursive; font-weight: normal; margin: 0; padding-top: calc(var(--line-y) + 2rem); display: flex; align-items: center; justify-content: center; gap: 15px; white-space: nowrap; }
+    .title { display: flex; align-items: center; gap: 15px; padding: 0 20px 8px; border-bottom: 3px solid #fff; }
+    h1 img { height: calc(1.1 * var(--fs)); width: auto; flex: none; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; height: calc(var(--line-y) + 3px); background: #1B4D2E; z-index: 1; }
+    .intro { max-width: min(96vw, 110rem); margin: 2.5rem auto 4rem; text-align: center; font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif; font-size: calc(clamp(1rem, 1.3vw, 1.2rem) + 1rem); line-height: 1.75; }
+    .intro p { margin: 0 0 1.4em; }
+    .intro ol { margin: 0 0 1.4em; padding-left: 0; list-style-position: inside; }
+    .intro li { margin-bottom: 0.4em; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="home" href="index.html"><span class="home-btn"><img src="logo.png" alt=""></span><span class="home-label">Home</span></a>
+    <a class="home active" aria-current="page" href="about.html"><span class="home-btn"><img src="about.png" alt=""></span><span class="home-label">About Us</span></a>
+    <a class="home" id="issue-link" href="issue.html"><span class="home-btn"><img src="issue.png" alt=""></span><span class="home-label">Our Issue</span></a>
+    <a class="home" id="sdg-link" href="sdg.html"><span class="home-btn"><img src="sdg.png" alt=""></span><span class="home-label">SDG 15 - Life On Land</span></a>
+    <a class="home" id="action-link" href="action.html"><span class="home-btn"><img src="action.png" alt=""></span><span class="home-label">Take Action</span></a>
+  </nav>
+  <h1><span class="title"><span>About Us</span><img src="about.png" alt=""></span></h1>
+  <div class="intro">
+    <p>Our names are Ayden, Vaishnavi, Aydin and Hyo Jun, and together, we proudly call ourselves the <strong>Care Movement Masters!</strong> We are a group of enthusiastic 4th Grade students studying at Taylor’s International School, Puchong. As part of our International Primary Curriculum (IPC) learning journey, we have been exploring an important environmental issue: the endangered Malayan Tiger and the increasing risk of it becoming extinct.</p>
+    <p>During our research, we discovered that the Malayan Tiger population is declining rapidly due to several serious threats, including deforestation, habitat loss, poaching and human activities. We realised that protecting these magnificent animals requires not only taking action ourselves but also educating others about their importance.</p>
+    <p>To find out how much younger students knew about this issue, we decided to focus on Year 1 and Year 2 students. We interviewed them using three main questions:</p>
+    <ol>
+      <li>"What kind of forests do the Malayan Tigers live in?"</li>
+      <li>"What are the main threats to the Malayan Tigers?"</li>
+      <li>"What can we do to protect the Malayan Tigers?"</li>
+    </ol>
+    <p>After collecting and analysing their responses, we discovered something quite surprising: <strong>75% of the students answered, "I don't know."</strong> This showed us that many younger students had limited knowledge about the Malayan Tiger, the dangers it faces and the importance of protecting it from extinction.</p>
+    <p>This discovery inspired us to take action! We realised that raising awareness among younger generations is an important first step towards protecting the Malayan Tiger. As the Care Movement Masters, we hope to educate Year 1 and Year 2 students, encourage them to care about wildlife and inspire them to become part of the movement to save the Malayan Tiger before it is too late!</p>
+  </div>
+</body>
+</html>

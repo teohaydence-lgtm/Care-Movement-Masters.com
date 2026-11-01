@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG 15 - Life On Land - Care Movement Masters</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.25s; }
+    html, body { margin: 0; background: #1B4D2E; color: #FFFACD; }
+    body { text-align: center; padding: 0 2rem; min-height: 100vh; }
+    .nav { position: fixed; top: max(0.5rem, calc(var(--x) / 4 - 3rem - 7px)); left: 1rem; z-index: 2; display: flex; align-items: center; gap: 1.8rem; }
+    .nav::after { content: ''; position: fixed; left: 0; right: 0; top: var(--line-y); height: 3px; background: #fff; }
+    .home { display: flex; align-items: center; gap: 0.6rem; color: #FFFACD; text-decoration: none; font-family: 'Pacifico', cursive; font-size: 1.4rem; cursor: pointer; transition: transform 0.2s ease; transform-origin: left center; }
+    .home.active .home-label { color: #F95802; }
+    .home:hover, .home:focus-visible { transform: scale(1.08); }
+    .home-btn { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; box-sizing: border-box; padding: 0.4rem; background: #1B4D2E; border: 2px solid #FFFACD; border-radius: 0.8rem; }
+    .home-btn img { width: 100%; height: 100%; object-fit: contain; }
+    #sdg-link .home-btn { padding: 0.25rem; }
+    .home:focus-visible .home-btn { outline: 2px solid #fff; outline-offset: 3px; }
+    :root { --fs: clamp(3rem, 9vw, 7rem); --x: calc(76vh - 2.6 * var(--fs)); --line-y: calc(var(--x) / 2 - max(0px, var(--x) / 4) + 5px); }
+    body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; height: calc(var(--line-y) + 3px); background: #1B4D2E; z-index: 1; }
+    h1 { font-size: var(--fs); line-height: 1.3; font-family: 'Pacifico', cursive; font-weight: normal; margin: 0; padding-top: calc(var(--line-y) + 2rem); display: flex; align-items: center; justify-content: center; gap: 15px; white-space: nowrap; }
+    .title { display: flex; align-items: center; gap: 15px; padding: 0 20px 13px; border-bottom: 3px solid #fff; }
+    h1 img { height: calc(2.2 * var(--fs)); width: auto; flex: none; }
+    .intro { max-width: min(96vw, 110rem); margin: 2.5rem auto 4rem; text-align: center; font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif; font-size: calc(clamp(1rem, 1.3vw, 1.2rem) + 1rem); line-height: 1.75; }
+    .intro p { margin: 0 0 1.4em; }
+    .intro ol { margin: 0 0 1.4em; padding-left: 0; list-style-position: inside; }
+    .intro li { margin-bottom: 0.4em; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="home" href="index.html"><span class="home-btn"><img src="logo.png" alt=""></span><span class="home-label">Home</span></a>
+    <a class="home" href="about.html"><span class="home-btn"><img src="about.png" alt=""></span><span class="home-label">About Us</span></a>
+    <a class="home" id="issue-link" href="issue.html"><span class="home-btn"><img src="issue.png" alt=""></span><span class="home-label">Our Issue</span></a>
+    <a class="home active" aria-current="page" id="sdg-link" href="sdg.html"><span class="home-btn"><img src="sdg.png" alt=""></span><span class="home-label">SDG 15 - Life On Land</span></a>
+    <a class="home" id="action-link" href="action.html"><span class="home-btn"><img src="action.png" alt=""></span><span class="home-label">Take Action</span></a>
+  </nav>
+  <h1><span class="title"><span>SDG 15 -<br>Life On Land</span><img src="sdg.png" alt=""></span></h1>
+  <div class="intro">
+    <p>Sustainable Development Goal 15 (SDG 15), also known as Life on Land, is one of the 17 Sustainable Development Goals established by the United Nations in 2015. Its main purpose is to protect, restore and preserve the Earth's land-based ecosystems, including forests, mountains, grasslands and wetlands. It also focuses on preventing deforestation, reducing land degradation, protecting endangered wildlife and stopping biodiversity loss.</p>
+    <p>Our planet is home to millions of different species of plants, animals and other living organisms. Every species has an important role in maintaining the natural balance of its ecosystem. Unfortunately, human activities such as deforestation, illegal hunting, pollution, urbanisation and climate change are putting enormous pressure on wildlife and their natural habitats.</p>
+    <p>SDG 15 recognises that protecting nature is essential not only for animals and plants but also for human survival. Healthy forests provide oxygen, absorb carbon dioxide, regulate temperatures, prevent soil erosion, maintain water quality and provide habitats for countless species. Without healthy ecosystems, the natural resources that humans depend on could become increasingly threatened.</p>
+    <p>SDG 15 is important because all living organisms are connected through complex ecosystems. Every animal, plant and microorganism contributes to maintaining the balance of nature. When one species disappears, it can affect many other organisms that depend on it. For example, predators help control the populations of other animals, while herbivores help regulate plant growth. Plants provide food and shelter for wildlife, while certain animals help spread seeds and maintain healthy forests.</p>
+    <p>When biodiversity decreases, ecosystems can become weaker and less stable. This can affect food chains, natural habitats, soil quality and even the availability of clean water. Another major concern is deforestation. When forests are cleared for agriculture, roads, buildings and other developments, animals lose their natural habitats. This can force wildlife into smaller and more isolated areas, making it harder for them to find food, shelter and suitable breeding partners.</p>
+    <p>The Malayan Tiger (<em>Panthera tigris jacksoni</em>) is one of Malaysia's most iconic and important wildlife species. However, it is classified as Critically Endangered, meaning it faces an extremely high risk of extinction in the wild. The Malayan Tiger is an apex predator, meaning it is at the top of its food chain. It plays a significant role in controlling the populations of herbivores and other prey animals, helping maintain the balance of the forest ecosystem.</p>
+    <p>Unfortunately, the Malayan Tiger faces several serious threats, including deforestation, habitat fragmentation, illegal poaching, loss of prey and human-wildlife conflict. These threats make it increasingly difficult for the Malayan Tiger population to recover. Deforestation destroys the tiger's natural habitat, while habitat fragmentation divides large forests into smaller, isolated sections. This makes it harder for tigers to move around, find mates and access food. Illegal poaching also threatens their survival because tigers are hunted for their body parts through illegal wildlife trade.</p>
+    <p>The extinction of the Malayan Tiger would be a significant loss to Malaysia's biodiversity. However, the consequences would go beyond losing one magnificent animal. As apex predators, tigers help regulate prey populations. If they disappear, the natural relationships between predators, herbivores and vegetation could change. In some circumstances, certain herbivore populations may increase, placing additional pressure on vegetation and young trees. This could affect forest regeneration, food availability for other animals and the overall structure of the ecosystem.</p>
+    <p>Furthermore, the disappearance of an important predator can alter the food web, creating changes that may affect several other species. These changes could make the ecosystem less balanced and potentially reduce its ability to remain healthy over time. Losing such an important predator would remove one of the natural forces that helps maintain the ecosystem's balance.</p>
+    <p>The Central Forest Spine (CFS) is an important network of forest areas located across Peninsular Malaysia. It connects several major forest complexes, creating important wildlife habitats and allowing animals to move between different forest areas. The CFS is particularly important because it supports biodiversity by providing habitats for many endangered and threatened species, including the Malayan Tiger.</p>
+    <p>Forest connectivity is essential for wildlife. Animals need sufficiently large and connected habitats to find food, locate mates, establish territories and maintain healthy populations. However, deforestation, roads, plantations and other human developments can break up these forest connections. When this happens, wildlife populations may become isolated, making it harder for them to survive and reproduce.</p>
+    <p>The Malayan Tiger plays an important role within these forest ecosystems as an apex predator. If it becomes extinct, the CFS would lose an important part of its natural food web. Changes in predator-prey relationships could affect the ecological balance of the forests. Protecting the Malayan Tiger is therefore not just about saving one species. It is also about preserving the biodiversity, ecological relationships and natural stability of Malaysia's forest ecosystems.</p>
+  </div>
+</body>
+</html>
