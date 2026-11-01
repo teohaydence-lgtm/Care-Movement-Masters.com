@@ -1,0 +1,2 @@
+html, html * { cursor: url("tiger-cursor.png") 24 21, default !important; }
+html a, html a *, html button, html button *, html summary, html label, html select, html [role="button"], html [onclick], html input:is([type="button"], [type="submit"], [type="reset"], [type="checkbox"], [type="radio"]) { cursor: url("tiger-cursor-open.png") 24 21, pointer !important; }

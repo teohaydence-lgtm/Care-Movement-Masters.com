@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cursor.css">
   <style>
     @view-transition { navigation: auto; }
     ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.25s; }
@@ -16,6 +17,9 @@
     .nav { position: fixed; top: max(0.5rem, calc(var(--x) / 4 - 3rem - 7px)); left: 1rem; z-index: 2; display: flex; align-items: center; gap: 1.8rem; }
     .nav::after { content: ''; position: fixed; left: 0; right: 0; top: var(--line-y); height: 3px; background: #fff; }
     .home { display: flex; align-items: center; gap: 0.6rem; color: #FFFACD; text-decoration: none; font-family: 'Pacifico', cursive; font-size: 1.4rem; cursor: pointer; transition: transform 0.2s ease; transform-origin: left center; }
+    .nav { right: 1rem; padding: 0.4rem 1.5rem 0.4rem 0.4rem; margin: -0.4rem; overflow-x: auto; scrollbar-width: none; }
+    .nav::-webkit-scrollbar { display: none; }
+    .home { flex-shrink: 0; white-space: nowrap; }
     .home.active .home-label { color: #F95802; }
     .home:hover, .home:focus-visible { transform: scale(1.08); }
     .home-btn { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; box-sizing: border-box; padding: 0.4rem; background: #1B4D2E; border: 2px solid #FFFACD; border-radius: 0.8rem; }
@@ -40,6 +44,7 @@
     <a class="home" id="issue-link" href="issue.html"><span class="home-btn"><img src="issue.png" alt=""></span><span class="home-label">Our Issue</span></a>
     <a class="home" id="sdg-link" href="sdg.html"><span class="home-btn"><img src="sdg.png" alt=""></span><span class="home-label">SDG 15 - Life On Land</span></a>
     <a class="home" id="action-link" href="action.html"><span class="home-btn"><img src="action.png" alt=""></span><span class="home-label">Take Action</span></a>
+    <a class="home" href="research.html"><span class="home-btn"><img src="research.png" alt=""></span><span class="home-label">Research</span></a>
   </nav>
   <h1><span class="title"><span>About Us</span><img src="about.png" alt=""></span></h1>
   <div class="intro">
