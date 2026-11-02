@@ -26,7 +26,7 @@
     .home-btn img { width: 100%; height: 100%; object-fit: contain; }
     #sdg-link .home-btn { padding: 0.25rem; }
     .home:focus-visible .home-btn { outline: 2px solid #fff; outline-offset: 3px; }
-    :root { --fs: clamp(3rem, 9vw, 7rem); --x: calc(76vh - 2.6 * var(--fs)); --line-y: calc(var(--x) / 2 - max(0px, var(--x) / 4) + 5px); }
+    :root { --fs: clamp(3rem, 9vw, 7rem); --x: calc(76vh - 2.6 * var(--fs)); --line-y: max(calc(var(--x) / 2 - max(0px, var(--x) / 4) + 5px), calc(3.5rem + 12px)); }
     h1 { font-size: var(--fs); line-height: 1.3; font-family: 'Pacifico', cursive; font-weight: normal; margin: 0; padding-top: calc(var(--line-y) + 2rem); display: flex; align-items: center; justify-content: center; gap: 15px; white-space: nowrap; }
     .title { display: flex; align-items: center; gap: 15px; padding: 0 20px 8px; border-bottom: 3px solid #fff; }
     h1 img { height: calc(1.1 * var(--fs)); width: auto; flex: none; }
