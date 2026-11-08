@@ -1,131 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Care Movement Masters</title>
+  <title>Care Movement Masters</title>
   <link rel="icon" type="image/png" href="logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="cursor.css">
-  <style>
-    @view-transition { navigation: auto; }
-    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.25s; }
-    @keyframes drop-in { from { opacity: 0; transform: translateY(-100vh); } to { opacity: 1; transform: translateY(0); } }
-    html, body { margin: 0; background: #1B4D2E; color: #FFFACD; }
-    html { height: 100%; overflow: auto; scrollbar-color: #FFFACD #1B4D2E; }
-    :root { --vw: max(1vw, 12.4px); --vh: max(1vh, 6px); }
-    body { position: relative; box-sizing: border-box; text-align: center; padding: 0 2rem; min-width: 1240px; min-height: max(100%, 600px); display: flex; flex-direction: column; justify-content: center; }
-    :root { --u: min(var(--vw), calc(1.5 * var(--vh))); }
-    h1 { animation: drop-in 1s ease-out both; position: relative; z-index: 1; }
-    .hero { position: relative; z-index: 1; margin: 0 0 calc(24 * var(--vh)); transform: translateY(var(--shift, 0px)); }
-    .nav { position: absolute; top: calc(-1 * max(0px, (76 * var(--vh) - 2.6 * var(--fs)) / 4) - 3rem - 7px); left: -1rem; z-index: 2; display: flex; align-items: center; gap: 1.8rem; }
-    .home { display: flex; align-items: center; gap: 0.6rem; color: #FFFACD; text-decoration: none; font-family: 'Pacifico', cursive; font-size: 1.4rem; cursor: pointer; }
-    .home-btn { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; box-sizing: border-box; padding: 0.4rem; background: #1B4D2E; border: 2px solid #FFFACD; border-radius: 0.8rem; }
-    .home-btn img { width: 100%; height: 100%; object-fit: contain; }
-    #sdg-link .home-btn { padding: 0.25rem; }
-    .home { transition: transform 0.2s ease; transform-origin: left center; }
-    .nav { padding: 0.4rem 1.5rem 0.4rem 0.4rem; margin: -0.4rem; }
-    .home { flex-shrink: 0; white-space: nowrap; }
-    .home.active .home-label { color: #F95802; }
-    .home:hover, .home:focus-visible { transform: scale(1.08); }
-    .home:focus-visible .home-btn { outline: 2px solid #fff; outline-offset: 3px; }
-    :root { --fs: clamp(3rem, calc(9 * var(--vw)), 7rem); }
-    .hero::before { content: ''; position: absolute; left: -2rem; right: -2rem; top: calc(-1 * max(0px, (76 * var(--vh) - 2.6 * var(--fs)) / 4) + 5px); height: 3px; background: #fff; }
-    .scene { position: absolute; left: 0; right: 0; top: calc(94.5 * var(--vh)); height: 0; pointer-events: none; z-index: 0; }
-    .scene::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: #fff; }
-    .scene svg, .scene img { position: absolute; bottom: -1px; width: calc(var(--u) * var(--w)); height: calc(var(--u) * var(--h)); fill: #fff; overflow: visible; }
-    .scene img { bottom: -2px; }
-    .scene { --k: calc((74.5 * var(--vw) - 15px) / 65.83); }
-    .trees { position: absolute; left: calc(0.5 * var(--vw)); bottom: 0; display: flex; align-items: flex-end; gap: 1px; }
-    .trees img { position: static; width: calc(var(--k) * var(--w)); height: calc(var(--k) * var(--h)); flex: none; margin-bottom: -2px; }
-    .trees img[src="willow.png"] { margin-bottom: -3px; }
-    .scene .tiger { position: absolute; left: calc(76 * var(--vw)); bottom: -2px; width: calc(22 * var(--vw)); aspect-ratio: 468 / 224; }
-    .scene .tiger img { position: absolute; left: 0; top: 0; bottom: auto; width: 100%; height: 100%; }
-    .scene .tiger .tail { transform-origin: 79.3% 25.9%; animation: wag 1.2s ease-in-out infinite; }
-    @keyframes wag { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(4deg); } 75% { transform: rotate(-4deg); } }
-    .scene .bird { position: absolute; width: calc(var(--u) * var(--w)); height: calc(var(--u) * var(--h)); bottom: calc(var(--k) * var(--y)); }
-    .scene .bird img { position: absolute; top: 0; bottom: auto; height: 100%; width: 50.17%; }
-    .scene .bird img.l { left: 0; }
-    .scene .bird img.r { left: 49.83%; }
-    .wing { transform-box: fill-box; }
-    .wing.l { transform-origin: 100% 95%; animation: flap-l 1.6s ease-in-out infinite; }
-    .wing.r { transform-origin: 0% 95%; animation: flap-r 1.6s ease-in-out infinite; }
-    @keyframes flap-l { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(7deg); } }
-    @keyframes flap-r { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-7deg); } }
-    @media (prefers-reduced-motion: reduce) { h1 { animation: none; } .wing { animation: none; } .tiger .tail { animation: none; } }
-    h1 { font-size: var(--fs); line-height: 1.3; font-family: 'Pacifico', cursive; font-weight: normal; display: flex; align-items: center; justify-content: center; gap: 15px; margin: 0; }
-    #label { white-space: nowrap; }
-    #logo { flex: none; width: 0; height: 0; object-fit: contain; }
-  </style>
+  <meta http-equiv="refresh" content="0; url=home">
+  <link rel="canonical" href="home">
+  <script>location.replace('home' + location.search + location.hash);</script>
+  <style>html, body { margin: 0; background: #1B4D2E; }</style>
 </head>
 <body>
-  <div class="hero">
-    <nav class="nav">
-      <a class="home active" aria-current="page" id="home-link" href="index.html"><span class="home-btn"><img src="logo.png" alt=""></span><span class="home-label">Home</span></a>
-      <a class="home" id="about-link" href="about.html"><span class="home-btn"><img src="about.png" alt=""></span><span class="home-label">About Us</span></a>
-      <a class="home" id="issue-link" href="issue.html"><span class="home-btn"><img src="issue.png" alt=""></span><span class="home-label">Our Issue</span></a>
-      <a class="home" id="sdg-link" href="sdg.html"><span class="home-btn"><img src="sdg.png" alt=""></span><span class="home-label">SDG 15 - Life On Land</span></a>
-      <a class="home" id="action-link" href="action.html"><span class="home-btn"><img src="action.png" alt=""></span><span class="home-label">Take Action</span></a>
-      <a class="home" href="research.html"><span class="home-btn"><img src="research.png" alt=""></span><span class="home-label">Research</span></a>
-    </nav>
-    <h1><span id="label">Care Movement<br>Masters</span><img id="logo" src="logo.png" alt="Logo"></h1>
-  </div>
-  <div class="scene" aria-hidden="true">
-    <div class="trees">
-      <img src="tree.png" alt="" style="--w:4.57; --h:5.6">
-      <img src="pine.png" alt="" style="--w:3.75; --h:8.0">
-      <img src="palm.png" alt="" style="--w:3.86; --h:6.4">
-      <img src="willow.png" alt="" style="--w:2.9; --h:4.8">
-      <img src="tree.png" alt="" style="--w:5.88; --h:7.2">
-      <img src="pine.png" alt="" style="--w:4.5; --h:9.6">
-      <img src="willow.png" alt="" style="--w:3.39; --h:5.6">
-      <img src="palm.png" alt="" style="--w:4.82; --h:8.0">
-      <img src="pine.png" alt="" style="--w:2.25; --h:4.8">
-      <img src="tree.png" alt="" style="--w:5.22; --h:6.4">
-      <img src="willow.png" alt="" style="--w:5.32; --h:8.8">
-      <img src="palm.png" alt="" style="--w:3.38; --h:5.6">
-      <img src="pine.png" alt="" style="--w:3.38; --h:7.2">
-      <img src="tree.png" alt="" style="--w:3.92; --h:4.8">
-      <img src="palm.png" alt="" style="--w:4.82; --h:8.0">
-      <img src="willow.png" alt="" style="--w:3.87; --h:6.4">
-    </div>
-
-    <div class="tiger"><img src="tiger-body.png" alt=""><img class="tail" src="tiger-tail.png" alt=""></div>
-    <span class="bird" style="left:13.5%; --w:5.5; --h:1.48; --y:12.5; transform: rotate(-8deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
-    <span class="bird" style="left:46.5%; --w:5.5; --h:1.48; --y:11.5; transform: rotate(6deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
-    <span class="bird" style="left:25%; --w:5.5; --h:1.48; --y:13.5; transform: rotate(-4deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
-    <span class="bird" style="left:84%; --w:5.5; --h:1.48; --y:12; transform: rotate(10deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
-    <span class="bird" style="left:37%; --w:5.5; --h:1.48; --y:12; transform: rotate(5deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
-    <span class="bird" style="left:66%; --w:5.5; --h:1.48; --y:13; transform: rotate(-10deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
-    <span class="bird" style="left:93%; --w:5.5; --h:1.48; --y:11.5; transform: rotate(3deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
-  </div>
-  <script>
-    const label = document.getElementById('label');
-    const logo = document.getElementById('logo');
-    const hero = document.querySelector('.hero');
-    function layout() {
-      logo.style.width = logo.style.height = label.getBoundingClientRect().height + 'px';
-      hero.style.setProperty('--shift', '0px');
-      const lineY = hero.getBoundingClientRect().top + window.scrollY + parseFloat(getComputedStyle(hero, '::before').top);
-      const minY = 3.5 * parseFloat(getComputedStyle(document.documentElement).fontSize) + 12;
-      hero.style.setProperty('--shift', Math.max(0, minY - lineY) + 'px');
-    }
-    layout();
-    window.addEventListener('resize', layout);
-    document.fonts.ready.then(layout);
-
-    const heading = document.querySelector('h1');
-    document.getElementById('home-link').addEventListener('click', e => {
-      e.preventDefault();
-      window.scrollTo(0, 0);
-      heading.style.animation = 'none';
-      heading.offsetHeight;
-      heading.style.animation = '';
-    });
-
-  </script>
+  <noscript><a href="home">Continue to Care Movement Masters</a></noscript>
 </body>
 </html>
