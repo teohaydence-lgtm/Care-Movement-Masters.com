@@ -48,6 +48,26 @@
       .home { transition: none; }
       ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
     }
+    @media (max-width: 900px) {
+      body { position: relative; display: grid; grid-template-columns: auto minmax(calc(100% - 4.7rem), 1fr); column-gap: 1.2rem; align-content: start; padding: 0 1rem 0 0.5rem; }
+      body::after { content: ''; position: absolute; top: 0; bottom: 0; left: calc(0.5rem + var(--rail-w, 3.5rem) + 0.4rem); width: 3px; background: #fff; pointer-events: none; }
+      body::before { display: none; }
+      body > :not(.nav) { grid-column: 2; }
+      .nav { position: sticky; top: 0.5rem; left: auto; right: auto; margin: 0; grid-column: 1; grid-row: 1 / span 12; align-self: start; }
+      .nav { padding: 0.5rem 0.25rem; box-sizing: border-box; flex-direction: column; align-items: flex-start; gap: 0.7rem; width: max-content; max-height: calc(100vh - 1rem); max-height: calc(100dvh - 1rem); overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; background: transparent; z-index: 3; }
+      .nav { height: calc(100vh - 1rem); height: calc(100dvh - 1rem); }
+      .nav:hover { scrollbar-width: thin; scrollbar-color: #FFFACD #1B4D2E; }
+      .nav::-webkit-scrollbar { width: 0; }
+      .nav:hover::-webkit-scrollbar { width: 6px; }
+      .nav::-webkit-scrollbar-thumb { background: #FFFACD; border-radius: 3px; }
+      .nav::after { display: none; }
+      .home { gap: 0; }
+      .home-label { max-width: 0; margin-left: 0; opacity: 0; overflow: hidden; white-space: nowrap; transition: max-width 0.3s ease, margin-left 0.3s ease, opacity 0.2s ease; }
+      .nav.open .home-label, .nav:has(a:focus-visible) .home-label { max-width: 20rem; margin-left: 0.6rem; padding-right: 0.3rem; opacity: 1; }
+      .title { gap: 10px; padding-left: 10px; padding-right: 10px; }
+      h1 { --hf: min(var(--fs), 8vw); font-size: var(--hf); padding-top: 1.5rem; }
+      h1 img { height: calc(1.1 * var(--hf)); }
+    }
   </style>
 </head>
 <body>
@@ -85,5 +105,6 @@
       <li>TRAFFIC – Wildlife Trade Monitoring Network, <a href="https://www.traffic.org/" target="_blank" rel="noopener noreferrer">https://www.traffic.org/</a></li>
     </ul>
   </main>
+  <script src="nav-menu.js"></script>
 </body>
 </html>

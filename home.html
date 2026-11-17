@@ -16,33 +16,35 @@
     @keyframes drop-in { from { opacity: 0; transform: translateY(-100vh); } to { opacity: 1; transform: translateY(0); } }
     html, body { margin: 0; background: #1B4D2E; color: #FFFACD; }
     html { height: 100%; overflow: auto; scrollbar-color: #FFFACD #1B4D2E; }
-    :root { --vw: max(1vw, 12.4px); --vh: max(1vh, 6px); }
-    body { position: relative; box-sizing: border-box; text-align: center; padding: 0 2rem; min-width: 1240px; min-height: max(100%, 600px); display: flex; flex-direction: column; justify-content: center; }
+    :root { --vw: 1vw; --vh: 1vh; --vh: 1dvh; --line-y: max(68px, calc((76 * var(--vh) - 2.6 * var(--fs)) / 4 + 5px)); }
+    body { position: relative; box-sizing: border-box; text-align: center; min-width: 0; width: 100%; height: 100vh; height: 100dvh; display: grid; grid-template-rows: calc(var(--line-y) + 3px) minmax(0, 1fr); }
+    body::before { content: ''; position: absolute; top: var(--line-y); left: 0; right: 0; height: 3px; background: #fff; }
+    .home-stage { grid-row: 2; display: grid; place-items: center; min-width: 0; min-height: 0; container-type: size; }
+    .home-group { width: min(100cqw, 210cqh); box-sizing: border-box; padding-bottom: 3px; container-type: inline-size; }
     :root { --u: min(var(--vw), calc(1.5 * var(--vh))); }
     h1 { animation: drop-in 1s ease-out both; position: relative; z-index: 1; }
-    .hero { position: relative; z-index: 1; margin: 0 0 calc(24 * var(--vh)); transform: translateY(var(--shift, 0px)); }
-    .nav { position: absolute; top: calc(-1 * max(0px, (76 * var(--vh) - 2.6 * var(--fs)) / 4) - 3rem - 7px); left: -1rem; z-index: 2; display: flex; align-items: center; gap: 1.8rem; }
+    .hero { position: relative; z-index: 1; margin: 0 0 3cqw; min-width: 0; container-type: inline-size; }
+    .nav { position: absolute; top: max(0.5rem, calc((76 * var(--vh) - 2.6 * var(--fs)) / 4 - 3rem - 7px)); left: 1rem; z-index: 2; display: flex; align-items: center; gap: 1.8rem; }
     .home { display: flex; align-items: center; gap: 0.6rem; color: #FFFACD; text-decoration: none; font-family: 'Pacifico', cursive; font-size: 1.4rem; cursor: pointer; }
     .home-btn { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; box-sizing: border-box; padding: 0.4rem; background: #1B4D2E; border: 2px solid #FFFACD; border-radius: 0.8rem; }
     .home-btn img { width: 100%; height: 100%; object-fit: contain; }
     #sdg-link .home-btn { padding: 0.25rem; }
     .home { transition: transform 0.2s ease; transform-origin: left center; }
-    .nav { padding: 0.4rem 1.5rem 0.4rem 0.4rem; margin: -0.4rem; }
+    .nav { padding: 0.4rem 1.5rem 0.4rem 0.4rem; margin: -0.4rem; box-sizing: border-box; max-width: calc(100% - 1rem); overflow-x: auto; }
     .home { flex-shrink: 0; white-space: nowrap; }
     .home.active .home-label { color: #F95802; }
     .home:hover, .home:focus-visible { transform: scale(1.08); }
     .home:focus-visible .home-btn { outline: 2px solid #fff; outline-offset: 3px; }
     :root { --fs: clamp(3rem, calc(9 * var(--vw)), 7rem); }
-    .hero::before { content: ''; position: absolute; left: -2rem; right: -2rem; top: calc(-1 * max(0px, (76 * var(--vh) - 2.6 * var(--fs)) / 4) + 5px); height: 3px; background: #fff; }
-    .scene { position: absolute; left: 0; right: 0; top: calc(94.5 * var(--vh)); height: 0; pointer-events: none; z-index: 0; }
-    .scene::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: #fff; }
+    .scene { position: relative; height: 20cqw; pointer-events: none; z-index: 0; container-type: inline-size; }
+    .scene::before { content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 3px; background: #fff; }
     .scene svg, .scene img { position: absolute; bottom: -1px; width: calc(var(--u) * var(--w)); height: calc(var(--u) * var(--h)); fill: #fff; overflow: visible; }
     .scene img { bottom: -2px; }
-    .scene { --k: calc((74.5 * var(--vw) - 15px) / 65.83); }
-    .trees { position: absolute; left: calc(0.5 * var(--vw)); bottom: 0; display: flex; align-items: flex-end; gap: 1px; }
+    .scene { --k: max(0px, calc((74.5cqw - 15px) / 65.83)); --u: min(1cqw, calc(1.5 * var(--vh))); }
+    .trees { position: absolute; left: 0.5%; bottom: 0; display: flex; align-items: flex-end; gap: 1px; }
     .trees img { position: static; width: calc(var(--k) * var(--w)); height: calc(var(--k) * var(--h)); flex: none; margin-bottom: -2px; }
     .trees img[src="willow.png"] { margin-bottom: -3px; }
-    .scene .tiger { position: absolute; left: calc(76 * var(--vw)); bottom: -2px; width: calc(22 * var(--vw)); aspect-ratio: 468 / 224; }
+    .scene .tiger { position: absolute; left: 76%; bottom: -2px; width: 22%; aspect-ratio: 468 / 224; }
     .scene .tiger img { position: absolute; left: 0; top: 0; bottom: auto; width: 100%; height: 100%; }
     .scene .tiger .tail { transform-origin: 79.3% 25.9%; animation: wag 1.2s ease-in-out infinite; }
     @keyframes wag { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(4deg); } 75% { transform: rotate(-4deg); } }
@@ -56,21 +58,43 @@
     @keyframes flap-l { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(7deg); } }
     @keyframes flap-r { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-7deg); } }
     @media (prefers-reduced-motion: reduce) { h1 { animation: none; } .wing { animation: none; } .tiger .tail { animation: none; } }
-    h1 { font-size: var(--fs); line-height: 1.3; font-family: 'Pacifico', cursive; font-weight: normal; display: flex; align-items: center; justify-content: center; gap: 15px; margin: 0; }
+    h1 { font-size: min(var(--fs), 8.5cqw); line-height: 1.3; font-family: 'Pacifico', cursive; font-weight: normal; display: flex; align-items: center; justify-content: center; gap: 0.134em; margin: 0; }
     #label { white-space: nowrap; }
-    #logo { flex: none; width: 0; height: 0; object-fit: contain; }
+    #logo { flex: none; width: 2.6em; height: 2.6em; object-fit: contain; }
+    @media (max-width: 900px) {
+      body { grid-template-columns: calc(0.5rem + var(--rail-w, 3.5rem) + 0.4rem + 3px) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+      .nav { position: relative; top: 0; left: 0; right: auto; align-self: start; grid-column: 1; grid-row: 1; margin: 0.5rem 0 0.5rem 0.5rem; }
+      .home-stage { grid-column: 2; grid-row: 1; }
+      .home-group { width: min(100cqw, 160cqh); }
+      .scene { height: 34cqw; --k: max(0px, calc((74.5cqw - 7px) / 33.67)); }
+      .trees img:nth-child(n + 9) { display: none; }
+      body::before { display: none; }
+      body::after { content: ''; position: absolute; top: 0; bottom: 0; left: calc(0.5rem + var(--rail-w, 3.5rem) + 0.4rem); width: 3px; background: #fff; pointer-events: none; }
+      .nav { padding: 0.5rem 0.25rem; box-sizing: border-box; flex-direction: column; align-items: flex-start; gap: 0.7rem; width: max-content; max-width: calc(100vw - 7.5rem); height: calc(100vh - 1rem); height: calc(100dvh - 1rem); overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; background: transparent; z-index: 3; }
+      .nav:hover { scrollbar-width: thin; scrollbar-color: #FFFACD #1B4D2E; }
+      .nav::-webkit-scrollbar { width: 0; }
+      .nav:hover::-webkit-scrollbar { width: 6px; }
+      .nav::-webkit-scrollbar-thumb { background: #FFFACD; border-radius: 3px; }
+      .nav::after { display: none; }
+      .home { gap: 0; }
+      .home-btn { flex: none; }
+      .home-label { max-width: 0; margin-left: 0; opacity: 0; overflow: hidden; white-space: nowrap; transition: max-width 0.3s ease, margin-left 0.3s ease, opacity 0.2s ease; }
+      .nav.open .home-label, .nav:has(a:focus-visible) .home-label { max-width: min(20rem, calc(100vw - 10.5rem)); margin-left: 0.6rem; padding-right: 0.3rem; opacity: 1; white-space: normal; text-align: left; }
+    }
   </style>
 </head>
 <body>
-  <div class="hero">
     <nav class="nav">
-      <a class="home active" aria-current="page" id="home-link" href="home"><span class="home-btn"><img src="logo.png" alt=""></span><span class="home-label">Home</span></a>
-      <a class="home" id="about-link" href="about-us"><span class="home-btn"><img src="about.png" alt=""></span><span class="home-label">About Us</span></a>
-      <a class="home" id="issue-link" href="our-issue"><span class="home-btn"><img src="issue.png" alt=""></span><span class="home-label">Our Issue</span></a>
-      <a class="home" id="sdg-link" href="sdg-15"><span class="home-btn"><img src="sdg.png" alt=""></span><span class="home-label">SDG 15 - Life On Land</span></a>
-      <a class="home" id="action-link" href="take-action"><span class="home-btn"><img src="action.png" alt=""></span><span class="home-label">Take Action</span></a>
-      <a class="home" href="research"><span class="home-btn"><img src="research.png" alt=""></span><span class="home-label">Research</span></a>
+    <a class="home active" aria-current="page" id="home-link" href="home"><span class="home-btn"><img src="logo.png" alt=""></span><span class="home-label">Home</span></a>
+    <a class="home" id="about-link" href="about-us"><span class="home-btn"><img src="about.png" alt=""></span><span class="home-label">About Us</span></a>
+    <a class="home" id="issue-link" href="our-issue"><span class="home-btn"><img src="issue.png" alt=""></span><span class="home-label">Our Issue</span></a>
+    <a class="home" id="sdg-link" href="sdg-15"><span class="home-btn"><img src="sdg.png" alt=""></span><span class="home-label">SDG 15 - Life On Land</span></a>
+    <a class="home" id="action-link" href="take-action"><span class="home-btn"><img src="action.png" alt=""></span><span class="home-label">Take Action</span></a>
+    <a class="home" href="research"><span class="home-btn"><img src="research.png" alt=""></span><span class="home-label">Research</span></a>
     </nav>
+  <main class="home-stage">
+  <div class="home-group">
+  <div class="hero">
     <h1><span id="label">Care Movement<br>Masters</span><img id="logo" src="logo.png" alt="Logo"></h1>
   </div>
   <div class="scene" aria-hidden="true">
@@ -102,21 +126,9 @@
     <span class="bird" style="left:66%; --w:5.5; --h:1.48; --y:13; transform: rotate(-10deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
     <span class="bird" style="left:93%; --w:5.5; --h:1.48; --y:11.5; transform: rotate(3deg)"><img class="wing l" src="bird-left.png" alt=""><img class="wing r" src="bird-right.png" alt=""></span>
   </div>
+  </div>
+  </main>
   <script>
-    const label = document.getElementById('label');
-    const logo = document.getElementById('logo');
-    const hero = document.querySelector('.hero');
-    function layout() {
-      logo.style.width = logo.style.height = label.getBoundingClientRect().height + 'px';
-      hero.style.setProperty('--shift', '0px');
-      const lineY = hero.getBoundingClientRect().top + window.scrollY + parseFloat(getComputedStyle(hero, '::before').top);
-      const minY = 3.5 * parseFloat(getComputedStyle(document.documentElement).fontSize) + 12;
-      hero.style.setProperty('--shift', Math.max(0, minY - lineY) + 'px');
-    }
-    layout();
-    window.addEventListener('resize', layout);
-    document.fonts.ready.then(layout);
-
     const heading = document.querySelector('h1');
     document.getElementById('home-link').addEventListener('click', e => {
       e.preventDefault();
@@ -127,5 +139,6 @@
     });
 
   </script>
+  <script src="nav-menu.js"></script>
 </body>
 </html>
